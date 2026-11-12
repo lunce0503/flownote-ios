@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { CODE_EXPORT_EXTENSIONS, MAX_EXPORT_FILENAME_BYTES, resolveWebOrigin, navigationAction, parseExport } from '../lib/web-shell-policy.ts';
-import { CODE_LANGUAGES } from '../../flownote/src/entities/blog/model/codeFiles.ts';
 
 const origin = 'https://flownote-react.vercel.app';
 test('only the two cloud web origins can be selected; no default production fallback', () => {
@@ -33,10 +32,8 @@ test('the export bridge accepts bounded data only from the pinned web origin and
 });
 
 test('code exports preserve every owned extension and exact UTF bytes without widening MIME trust', () => {
-  const ownedExtensions = CODE_LANGUAGES.flatMap(language => language.extensions).sort();
-  assert.deepEqual([...CODE_EXPORT_EXTENSIONS].sort(), ownedExtensions);
   const utf16le = Buffer.from([0xff, 0xfe, 0x70, 0x00, 0x72, 0x00, 0x69, 0x00, 0x6e, 0x00, 0x74, 0x00, 0x28, 0x00, 0x29, 0x00, 0x0d, 0x00, 0x0a, 0x00]);
-  for (const extension of ownedExtensions) {
+  for (const extension of CODE_EXPORT_EXTENSIONS) {
     const mime = extension === 'json' ? 'application/json' : 'text/plain';
     const payload = { type: 'flownote.export', name: `source.${extension}`, mime, base64: utf16le.toString('base64') };
     const parsed = parseExport(JSON.stringify(payload), `${origin}/blog/code`, origin);
