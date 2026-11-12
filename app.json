@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "Flownote",
+    "slug": "flownote-mobile",
+    "version": "1.3.1",
+    "orientation": "default",
+    "icon": "./assets/images/icon.png",
+    "scheme": "flownotemobile",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.flownote.mobile",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false,
+          "NSAllowsLocalNetworking": false,
+          "NSExceptionDomains": {}
+        },
+        "NSPhotoLibraryUsageDescription": "노트와 캔버스에 사용자가 선택한 사진을 첨부할 때 사진 보관함을 사용합니다.",
+        "NSCameraUsageDescription": "첨부할 사진이나 동영상을 사용자가 직접 촬영할 때 카메라를 사용합니다.",
+        "NSMicrophoneUsageDescription": "첨부 동영상을 사용자가 직접 촬영할 때 마이크를 사용합니다."
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.flownote.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "owner": "lunce02",
+    "extra": {
+      "eas": {
+        "projectId": "0026ed46-eac0-4368-88ec-51f945829eb0"
+      }
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

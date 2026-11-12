@@ -1,0 +1,12 @@
+{
+  "name": "Flownote",
+  "short_name": "Flownote",
+  "description": "메모, 회의 필기, 아이디어 스케치와 개인 화이트보드",
+  "lang": "ko",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FEF3C7"
+}
